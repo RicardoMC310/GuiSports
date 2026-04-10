@@ -6,3 +6,11 @@ frontend/pnpm-lock.yaml
 # React Router
 frontend/.react-router/
 frontend/build/
+
+backend/.DS_Store
+backend/.env
+backend/node_modules/
+backend/pnpm-lock.yaml
+backend/dist/
+backend/src/generated/
+backend/prisma/migrations
