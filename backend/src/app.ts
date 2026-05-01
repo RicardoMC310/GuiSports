@@ -3,6 +3,7 @@ import cors from "cors";
 import AppRouter from "./router";
 import loggerMiddleware from "./utils/logger.middleware";
 import { errorMiddleware } from "./utils/error.middleware";
+import cookieParser from "cookie-parser";
 
 export default class App {
     private app: Express;
@@ -30,6 +31,7 @@ export default class App {
         this.app.use(cors());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(loggerMiddleware);
+        this.app.use(cookieParser());
         
         this.app.on("mount", (err) => {
             console.error(err);

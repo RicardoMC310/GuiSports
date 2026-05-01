@@ -20,7 +20,8 @@ class DotEnv {
 
 const env = {
     SERVER_HOST: DotEnv.getEnv("SERVER_PORT", "0.0.0.0"),
-    SERVER_PORT: DotEnv.getEnv("SERVER_PORT", "8000")
+    SERVER_PORT: DotEnv.getEnv("SERVER_PORT", "8000"),
+    DATABASE_URL: DotEnv.getEnv("DATABASE_URL")
 };
 
 export default env;
