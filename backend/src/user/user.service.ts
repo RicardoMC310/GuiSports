@@ -4,6 +4,7 @@ import UserEntity from './entity/user.entity';
 import { Repository } from 'typeorm';
 import CreateUserDTO from './dto/create-user.dto';
 import PasswordService from '../shared/modules/password/password.service';
+import AppError from '../valueObjects/AppError';
 
 @Injectable()
 export class UserService {
@@ -21,6 +22,16 @@ export class UserService {
         userEntity.email = createUserDTO.email;
         userEntity.password_hash = passwordHash;
 
-        this.repo.save(userEntity);
+        await this.repo.save(userEntity);
+    }
+
+    async findByEmail(email: string): Promise<UserEntity> {
+        const result = await this.repo.findOne({ where: { email: email } });
+
+        if (!result) {
+            throw new AppError("Email não encontrado", 404);
+        }
+
+        return result;
     }
 }
