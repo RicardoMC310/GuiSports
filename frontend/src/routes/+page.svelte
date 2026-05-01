@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { Button } from "$lib/components/ui/button";
-    import { type PageData } from "$lib/types";
-
-	const { data }: {data: PageData} = $props();
+	import Separator from '$lib/components/ui/separator/separator.svelte';
 </script>
 
-{#if data.user}
-	<Button>{data.user.name}</Button>
-{/if}
+<div class="w-100">
+	<Separator />
+	<h1 class="bg-red-600 text-white">Hello</h1>
+	<h1 class="bg-red-900 text-white">World</h1>
+</div>
